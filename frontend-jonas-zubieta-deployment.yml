@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-jonas-zubieta-deployment
+  namespace: jonas-zubieta-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-jonas-zubieta-deployment
+  template:
+    metadata:
+      labels:
+        app: frontend-jonas-zubieta-deployment
+    spec:
+      containers:
+      - name: frontend-jonas-zubieta-deployment
+        image: jonaszl/casa_f_nph:lastest
+        env:
+        - name: API_BACKEND
+          valueFrom:
+            configMapKeyRef:
+              name: jonas-zubieta-configmap
+              key: API_BACKEND
+      

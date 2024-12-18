@@ -1,0 +1,33 @@
+ kubectl delete namespace jonas-zubieta-namespace
+
+-- SE USAPARA EL BACKEND
+kubectl apply -f jonas-zubieta-namespace.yml
+kubectl apply -f backend-jonas-zubieta-deployment.yml
+kubectl apply -f jonas-zubieta-configmap.yml
+kubectl apply -f backend-jonas-zubieta-service.yml
+kubectl apply -f backend-jonas-zubieta-hpa.yml
+
+kubectl get all -n jonas-zubieta-namespace
+------------------------FIN BACKEND-----
+
+
+
+
+-- PARA EL FRONTEND
+
+kubectl apply -f frontend-jonas-zubieta-deployment.yml
+kubectl apply -f frontend-jonas-zubieta-service.yml
+
+kubectl get all -n jonas-zubieta-namespace
+----FIN-----------
+
+kubectl port-forward service/backend-jonas-zubieta-deployment 8080:8080 -n jonas-zubieta-namespace
+
+kubectl port-forward service/frontend-jonas-zubieta-deployment 4200:4200 -n jonas-zubieta-namespace
+
+
+
+
+--
+
+kubectl get configmap jonas-zubieta-configmap -o yaml -n jonas-zubieta-namespace

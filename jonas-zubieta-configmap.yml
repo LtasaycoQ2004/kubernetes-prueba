@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jonas-zubieta-configmap
+  namespace: jonas-zubieta-namespace
+data:
+  DATABASE_URL: r2dbc:postgresql://ep-round-shadow-a5ylnn14.us-east-2.aws.neon.tech/db_casa?ssl=true
+  DATABASE_USERNAME: db_casa_owner
+  DATABASE_PASSWORD: 1BCJTQ5OWlKo
+  API_BACKEND: "http://localhost:8080/"
