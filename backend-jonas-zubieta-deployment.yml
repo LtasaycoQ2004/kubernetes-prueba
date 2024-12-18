@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend-jonas-zubieta-deployment
-        image: jonaszl/casa_nph_peru:lastest
+        image: jonaszl/prs2_backend_casas:terminado
         env:
         - name: DATABASE_URL
           valueFrom:

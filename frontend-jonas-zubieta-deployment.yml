@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend-jonas-zubieta-deployment
-        image: jonaszl/casa_f_nph:lastest
+        image: jonaszl/prs2_frontend_casas:terminado
         env:
         - name: API_BACKEND
           valueFrom:
